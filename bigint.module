@@ -192,8 +192,8 @@ function bigint_field_formatter_settings_summary($field, $instance, $view_mode) 
   $summary = array();
   
   //Appease php's notice msg annoyance by setting null defaults.
-  if (!isset($settings['scale'])) { $settings['scale'] = 2; }
-  if (!isset($settings['decimal_separator'])) { $settings['decimal_separator'] = '.'; }
+  if (!isset($settings['scale'])) { $settings['scale'] = 0; }
+  if (!isset($settings['decimal_separator'])) { $settings['decimal_separator'] = ''; }
   if (!isset($settings['thousand_separator'])) { $settings['thousand_separator'] = ','; }
   if ($display['type'] == 'number_bigint') 
   {
