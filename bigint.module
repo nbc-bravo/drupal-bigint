@@ -29,6 +29,7 @@ function bigint_field_info() {
       'instance_settings' => array('min' => '', 'max' => '', 'prefix' => '', 'suffix' => ''),
       'default_widget' => 'number_bigint',
       'default_formatter' => 'number_bigint',
+      'property_type' => 'integer',
     ),
   );
 }
