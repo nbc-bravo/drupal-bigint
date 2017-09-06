@@ -147,8 +147,8 @@ function bigint_field_formatter_info() {
       'field types' => array('number_bigint'),
       'settings' =>  array(
         'thousand_separator' => ',',
-        //'decimal_separator' => '.',
-        //'scale' => 0,
+        'decimal_separator' => '.',
+        'scale' => 0,
         'prefix_suffix' => TRUE,
       ),
     ),
@@ -199,13 +199,7 @@ function bigint_field_formatter_settings_summary($field, $instance, $view_mode) 
   $settings = $display['settings'];
 
   $summary = array();
-  
-  //Appease php's notice msg annoyance by setting null defaults.
-  if (!isset($settings['scale'])) { $settings['scale'] = 0; }
-  if (!isset($settings['decimal_separator'])) { $settings['decimal_separator'] = ''; }
-  if (!isset($settings['thousand_separator'])) { $settings['thousand_separator'] = ','; }
-  if ($display['type'] == 'number_bigint') 
-  {
+  if ($display['type'] == 'number_bigint') {
     $summary[] = number_format(1234.1234567890, $settings['scale'], $settings['decimal_separator'], $settings['thousand_separator']);
     if ($settings['prefix_suffix']) {
       $summary[] = t('Display with prefix and suffix.');
