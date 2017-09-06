@@ -26,7 +26,7 @@ function bigint_field_info() {
     'number_bigint' => array(
       'label' => t('BigInt'),
       'description' => t('This field stores a number in the database as an bigint.'),
-      'instance_settings' => array('min' => '', 'max' => '', 'prefix' => '', 'suffix' => ''),
+      'instance_settings' => array('size' => '60', 'min' => '', 'max' => '', 'prefix' => '', 'suffix' => ''),
       'default_widget' => 'number_bigint',
       'default_formatter' => 'number_bigint',
       'property_type' => 'integer',
@@ -49,6 +49,13 @@ function bigint_field_settings_form($field, $instance, $has_data) {
 function bigint_field_instance_settings_form($field, $instance) {
   $settings = $instance['settings'];
 
+  $form['size'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Size of textfield'),
+    '#default_value' => $settings['size'],
+    '#required' => TRUE,
+    '#element_validate' => array('element_validate_integer_positive'),
+  );
   $form['min'] = array(
     '#type' => 'textfield',
     '#title' => t('Minimum'),
@@ -268,6 +275,7 @@ function bigint_field_widget_form(&$form, &$form_state, $field, $instance, $lang
   $element += array(
     '#type' => 'textfield',
     '#default_value' => $value,
+    '#size' => $instance['settings']['size'],
     '#number_type' => str_replace('number_', '', $field['type']),
   );
 
