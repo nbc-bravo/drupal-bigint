@@ -165,6 +165,7 @@ function bigint_field_formatter_settings_form($field, $instance, $view_mode, $fo
       '.' => t('Decimal point'),
       ',' => t('Comma'),
       ' ' => t('Space'),
+      "'" => t('Apostrophe'),
     );
     $element['thousand_separator'] = array(
       '#type' => 'select',
