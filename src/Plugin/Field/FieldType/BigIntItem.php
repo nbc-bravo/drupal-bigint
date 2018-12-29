@@ -16,8 +16,8 @@ use Drupal\Core\TypedData\DataDefinition;
  *   label = @Translation("Number (bigint)"),
  *   description = @Translation("This field stores a big integer number in the database."),
  *   category = @Translation("Number"),
- *   default_widget = "number",
- *   default_formatter = "number_integer"
+ *   default_widget = "bigint",
+ *   default_formatter = "bigint_item_default"
  * )
  */
 class BigIntItem extends NumericItemBase {
